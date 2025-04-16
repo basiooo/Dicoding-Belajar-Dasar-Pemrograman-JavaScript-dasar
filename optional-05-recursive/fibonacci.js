@@ -1,15 +1,12 @@
-function fibonacci(n) {
-  const sequence = [];
-
-  for (let i = 0; i <= n; i++) {
-    if (i < 2) {
-      sequence.push(i);
-    } else {
-      sequence.push(sequence[i - 1] + sequence[i - 2]);
-    }
+function fibonacci(n, sequence = [0, 1]) {
+  if (n === 0) {
+    return [0];
   }
-
-  return sequence;
+  if (n === 1) {
+    return sequence;
+  }
+  
+  return fibonacci(n - 1, [...sequence, sequence[sequence.length - 1] + sequence[sequence.length - 2]]);
 }
 
 // Jangan hapus kode di bawah ini!
